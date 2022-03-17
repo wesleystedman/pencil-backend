@@ -10,7 +10,7 @@ Question.deleteMany({})
         const questions = lines.map(line => {
             const values = line.split('\t').map(val => val.trim());
             const questionDoc = {
-                number: parseInt(values[0]),
+                _id: parseInt(values[0]),
                 annotations: values.slice(1)
             }
             return questionDoc;
