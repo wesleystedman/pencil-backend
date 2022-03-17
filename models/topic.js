@@ -5,10 +5,6 @@ const Schema = mongoose.Schema;
 // The topic tree will be static, and the search needs to efficiently find subtrees, making this a perfect fit
 const topicSchema = new Schema({
     _id: String,
-    parent: {
-        type: String,
-        ref: 'Topic'
-    },
     left: Number,
     right: Number
 });
