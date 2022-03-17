@@ -1,9 +1,17 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const Question = require('../models/question');
 
 router.get('/search', function(req, res) {
-  console.log(req.query);
-  res.json('');
+  Question.find({ annotations: req.query['q'].trim() }).exec()
+    .then(questions => {
+      ids = questions.map(question => question._id);
+      res.json(ids);
+    })
+    .catch(err => {
+      console.error(err);
+      res.json([]);
+    })
 });
 
 module.exports = router;
