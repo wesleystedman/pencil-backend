@@ -6,4 +6,6 @@ const questionSchema = new Schema({
     annotations: [String]
 });
 
+questionSchema.index({ annotations: 1 });
+
 module.exports = mongoose.model('Question', questionSchema);
