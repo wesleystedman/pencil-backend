@@ -8,7 +8,7 @@ Question.deleteMany({})
         const fileText = fs.readFileSync('./questions.tsv', 'utf8');
         const lines = fileText.split('\n').slice(1); // cut off the header
         const questions = lines.map(line => {
-            const values = line.split('\t').map(val => val.trim());
+            const values = line.trim().split('\t').map(val => val.trim());
             const questionDoc = {
                 _id: parseInt(values[0]),
                 annotations: values.slice(1)

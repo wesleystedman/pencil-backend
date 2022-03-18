@@ -11,7 +11,7 @@ Topic.deleteMany({})
         // build a tree of all the topics
         const topicTree = new Tree('root', { _id: 'root', left: 0, right: 0 });
         lines.forEach(line => {
-            let nodes = line.split('\t').map(val => val.trim());
+            let nodes = line.trim().split('\t').map(val => val.trim());
             nodes = ['root', ...nodes];
             nodes.forEach((node, index) => {
                 if (!topicTree.find(node)) {
