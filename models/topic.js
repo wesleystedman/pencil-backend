@@ -9,4 +9,6 @@ const topicSchema = new Schema({
     right: Number
 });
 
+topicSchema.index({ left: 1, right: 1 });
+
 module.exports = mongoose.model('Topic', topicSchema);
